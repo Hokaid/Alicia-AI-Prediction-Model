@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.3/xlsx.full.min.js"></script>
+<script>
+	function Sendata(arrdata){
+			let url = "https://us-central1-herramientapronostico2019.cloudfunctions.net/pronosticoBolsas";
+			let postData ={
+				"data": arrdata
+};
+$.ajax({
+    url: url,
+    method: "POST",
+    data: JSON.stringify(postData),
+    contentType: "application/json",
+    dataType: 'json',
+    timeout: 540000,
+    success: (res, textStatus, jqXHR) => {
+      console.log(res);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log(textStatus);
+    }
+  });
+	}
+</script>
+<title>Alicia</title>
+<link rel="stylesheet" href="style/index_style.css">
+</head>
+<body>
+</br>
+</br>
+<h1>Alicia</h1>
+</br>
+</br>
+</br>
+</br>
+<div id="div_file">
+	<p id="texto">Enviar Datos</p>
+	<input type="file" id="rfb" accept=".xls,.xlsx,.ods">
+</div>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<p id="texto2"> Analizando datos ...</p>
+</br>
+</br>
+</br>
+</br>
+<div id="div_file">
+<a href=""><p id="texto">Descargar Predicciones</p></a>
+</div>
+<script type="text/javascript">
+	let arrdata;
+	document.getElementById("rfb").addEventListener("change", function(e){
+		var file = e.target.files[0]; 
+		if (!file) return;
+		var FR = new FileReader();
+		FR.onload = function(e) {
+			var data = new Uint8Array(e.target.result);
+			var workbook = XLSX.read(data, {type: 'array'});
+			var firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+			var result = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+			result.splice(0, 1);
+			arrdata = result;
+			console.log(arrdata);
+			Sendata(arrdata);
+		};
+		FR.readAsArrayBuffer(file);
+	});
+</script>
+</body>
+</html>
