@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/png" href="icon.png" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.3/xlsx.full.min.js"></script>
 <script>
@@ -34,7 +35,6 @@ $.ajax({
     timeout: 540000,
     success: (res, textStatus, jqXHR) => {
       extocsv(res);
-      console.log(res);
     },
     error: function(jqXHR, textStatus, errorThrown) {
       console.log(textStatus);
@@ -74,7 +74,7 @@ $.ajax({
         };
 	function Setdata(data){
 		for (i=0; i<data.length; i++){
-			let date = data[i][0];
+			let date = data[i][0]; data[i][2] = parseInt(data[i][2]);
 			let [m, d, a] = date.split("/");
 			if (a.length == 2){ a = "20"+a;}
 			else if (a.length == 1) { a="200"+a; }
