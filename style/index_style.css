@@ -1,27 +1,55 @@
+@import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
 *{
 	margin:0px;
 	padding:0px;
-	font-family: helvetica;
 }
 
 p#texto{
-	text-align: center;
-	color:white;
+	font-family: "Times New Roman", Times, serif;
+font-size: 20px;
+letter-spacing: 6px;
+word-spacing: 6px;
+color: #FFFFFF;
+font-weight: 700;
+text-decoration: none;
+font-style: normal;
+font-variant: small-caps;
+text-transform: uppercase;
 }
 
 p#texto2{
 	text-align: center;
-	color:black;
+	font-family: "Times New Roman", Times, serif;
+font-size: 20px;
+letter-spacing: 6px;
+word-spacing: 6px;
+color: #0CFF00;
+font-weight: 700;
+text-decoration: none;
+font-style: normal;
+font-variant: small-caps;
+text-transform: uppercase;
 }
 
 h1{
 	text-align: center;
-	font-family: helvetica;
+	font-family: "Lucida Console", Monaco, monospace;
+font-size: 40px;
+letter-spacing: 6px;
+word-spacing: 6px;
+color: #42FF22;
+font-weight: 700;
+text-decoration: none;
+font-style: normal;
+font-variant: small-caps;
+text-transform: uppercase;
 	position:center;
 }
 
-div#div_file{
-	position:center;
+button#upfile{
+	position:50%;
 	margin: auto;
     width: 50%;
     border: 3px solid white;
@@ -30,15 +58,4 @@ div#div_file{
 	background-color: #2499e3;
 	-webkit-border-radius:5px;
 	-webkit-box-shadow:0px 3px 0px #1a71a9;
-}
-
-input#rfb{
-	position:absolute;
-	top:0px;
-	left:0px;
-	right:0px;
-	bottom:0px;
-	width:100%;
-	height:100%;
-	opacity: 0;
 }
