@@ -32,7 +32,7 @@ $.ajax({
     data: JSON.stringify(postData),
     contentType: "application/json",
     dataType: 'json',
-    timeout: 540000,
+    timeout: 5400000,
     success: (res, textStatus, jqXHR) => {
       extocsv(res);
     },
